@@ -12,6 +12,8 @@ import AmountOut from "./AmountOut";
 import Balance from "./Balance";
 import styles from "../styles";
 
+// define the Exchange func
+
 const Exchange = ({ pools }) => {
   const { account } = useEthers();
   const [fromValue, setFromValue] = useState("0");
