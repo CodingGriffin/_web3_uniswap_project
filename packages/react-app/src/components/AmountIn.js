@@ -11,6 +11,11 @@ const AmountIn = ({ value, onChange, currencyValue, onSelect, currencies, isSwap
 
   useOnClickOutside(ref, () => setShowList(false))
 
+  // useEffect(() => {
+  //   if (Object.keys(currencies).includes(currencies))
+  //     setActiveCurrency(currencies[currencies]);
+  //   else setActiveCurrency("Select");
+  // }, [currencies, currencies]);
   useEffect(() => {
     if (Object.keys(currencies).includes(currencyValue))
       setActiveCurrency(currencies[currencyValue]);
@@ -19,8 +24,16 @@ const AmountIn = ({ value, onChange, currencyValue, onSelect, currencies, isSwap
 
   return (
     <div className={styles.amountContainer}>
-      <input
+      {/* <input
         placeholder="0.0"
+        type="number"
+        value={value}
+        disabled={isSwapping}
+        onChange={(e) => typeof onChange === "function" && onChange(e.target.value)}
+        className={styles.amountInput}
+      /> */}
+      <input
+        placeholder="0.5"
         type="number"
         value={value}
         disabled={isSwapping}

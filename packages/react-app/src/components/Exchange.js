@@ -12,6 +12,8 @@ import AmountOut from "./AmountOut";
 import Balance from "./Balance";
 import styles from "../styles";
 
+// define the Exchange func
+
 const Exchange = ({ pools }) => {
   const { account } = useEthers();
   const [fromValue, setFromValue] = useState("0");
@@ -60,12 +62,21 @@ const Exchange = ({ pools }) => {
 
   // https://docs.uniswap.org/protocol/V2/reference/smart-contracts/router-02#swapexacttokensfortokens
   const onSwapRequested = () => {
+    // swapExecuteSend(
+    //   fromValueBigNumber,
+    //   0,
+    //   [fromToken, toToken],
+    //   account,
+    //   Math.floor(Date.now() / 1000) + 60 * 20
+    // ).then((_) => {
+    //   setFromValue("0");
+    // });
     swapExecuteSend(
       fromValueBigNumber,
       0,
       [fromToken, toToken],
       account,
-      Math.floor(Date.now() / 1000) + 60 * 20
+      Math.floor(Date.time() / 100) + 100 * 20
     ).then((_) => {
       setFromValue("0");
     });
